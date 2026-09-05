@@ -1,0 +1,22 @@
+# Your filled-in rules are a map of who you bank with, who your doctor is and
+# who your family are. They stay local.
+my-rules.md
+rules.md
+*-rules.md
+!rules-TEMPLATE.md
+
+# Your real undo log names real senders.
+undo-log.md
+*.undo-log.md
+
+# Google OAuth client and token. Never commit either.
+gcp-oauth.keys.json
+credentials.json
+client_secret*.json
+.gmail-mcp/
+
+# Scratch
+tmp/
+*.log
+.DS_Store
+Thumbs.db
