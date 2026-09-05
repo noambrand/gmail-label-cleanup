@@ -26,6 +26,23 @@ senders nobody thought of, and those senders are still sending. Go back
 periodically and add filters for the ones that appeared most often. Otherwise
 the backlog rebuilds behind you while you clear the front.
 
+## A filter can carry only one user label
+
+`create_filter` rejects an action with two of your own labels:
+
+```
+Invalid filter criteria or action: Too many user labels in filter
+```
+
+Gmail's own system labels (`TRASH`, `IMPORTANT`, `CATEGORY_PROMOTIONS`) do not
+count against it, so `addLabelIds: ["Label_73", "TRASH"]` is fine while
+`["Label_73", "Label_20"]` is not.
+
+When a sender genuinely earns two labels, make two filters: a broad one for the
+sender, and a narrow one that adds `query: subject:(...)` for the subset that
+earns the second label. That is the same sender-plus-content split the rules
+file already describes, expressed as filters.
+
 ## Paging the archive by date, not by token
 
 Page tokens expire and do not survive an interrupted session. Dates do.
